@@ -10,16 +10,16 @@ import java.io.Serializable;
  * Created by fsoewito on 2/20/2016.
  */
 @Entity
-@Table(name = "person")
+@Table(name = "data_user")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Person implements Serializable {
+public class User implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "person_id_seq",
-            sequenceName = "person_id_seq")
+            name = "data_user_id_seq",
+            sequenceName = "data_user_id_seq")
     @GeneratedValue(
-            generator = "person_id_seq",
+            generator = "data_user_id_seq",
             strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
@@ -33,10 +33,10 @@ public class Person implements Serializable {
     @Column(name = "password")
     private String password;
 
-    public Person() {
+    public User() {
     }
 
-    public Person(String name, int age, String password) {
+    public User(String name, int age, String password) {
         this.name = name;
         this.age = age;
         this.password = password;
